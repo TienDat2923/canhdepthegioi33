@@ -1,0 +1,144 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #263238;
+}
+
+header {
+    background-color: #17324d;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin: 0 0 12px;
+}
+
+header p {
+    line-height: 1.6;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    margin: 0;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid #b8c7d1;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+figure img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+figcaption h2 {
+    color: #173f5f;
+    font-size: 22px;
+}
+
+figcaption p {
+    line-height: 1.7;
+}
+
+footer {
+    background-color: #17324d;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+/* Chế độ máy tính bảng */
+@media screen and (min-width: 772px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    figure img {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        height: auto;
+    }
+
+    figure:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Chế độ màn hình lớn */
+@media screen and (min-width: 992px) {
+    figure:nth-child(3n) {
+        grid-column: 1 / -1;
+    }
+
+    figure img {
+        border-radius: 0;
+    }
+}
+
+/* Ưu tiên giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Chế độ màu tối */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #fff4b8;
+    }
+
+    figure {
+        background-color: #252525;
+        color: #fff4b8;
+        border-color: #000000;
+        box-shadow: none;
+    }
+
+    figcaption h2 {
+        color: #ffe082;
+    }
+
+    header,
+    footer {
+        background-color: #202020;
+        color: #ffffff;
+    }
+}
